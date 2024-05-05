@@ -2,6 +2,7 @@
 """ Starts a Flash Web Application """
 from models import storage
 from models.state import State
+from uuid import uuid4
 from models.city import City
 from models.amenity import Amenity
 from models.place import Place
@@ -18,9 +19,10 @@ def close_db(error):
     storage.close()
 
 
-@app.route('/hbnb', strict_slashes=False)
+@app.route('/0-hbnb', strict_slashes=False)
 def hbnb():
     """ HBNB is alive! """
+    cache_id = str(uuid4())
     states = storage.all(State).values()
     states = sorted(states, key=lambda k: k.name)
     st_ct = []
