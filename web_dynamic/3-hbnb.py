@@ -8,7 +8,7 @@ from uuid import uuid4
 app = Flask(__name__)
 
 
-@app.route('/2-hbnb', strict_slashes=False)
+@app.route('/3-hbnb', strict_slashes=False)
 def cities_state_db():
     """ cities of state from DBStorage """
     data = {
@@ -17,7 +17,7 @@ def cities_state_db():
         'places': storage.all('Place').values()
     }
     cache_id = uuid4()
-    return render_template('2-hbnb.html', data=data, cache_id=cache_id)
+    return render_template('3-hbnb.html', data=data, cache_id=cache_id)
 
 
 @app.route('/states/<id>', strict_slashes=False)
